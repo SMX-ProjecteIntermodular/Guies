@@ -1,4 +1,4 @@
-# Guies
+# Guies de suport
 
 Guies de suport pels projectes
 
