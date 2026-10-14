@@ -9,3 +9,5 @@ Guies de suport pels projectes
 - [Guia 3. Markdown](03-markdown.md)
 
 - [Guia 4. Creació de repositoris a partir de plantilla](04-crear-repositoris.md)
+
+- [Guia 5. Resolució de conflictes a GitHub](05-resolucio-conflictes.md)
