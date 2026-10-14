@@ -2,4 +2,8 @@
 
 Guies de suport pels projectes
 
+- [Guia 1. Iniciació a Git, GitHub i Visual Studio Code](01-iniciacio-git-github-vscode.md)
 
+- [Guia 2. Comandes Git](02-comandes-git.md)
+
+- [Guia 3. Markdown](03-markdown.md)
