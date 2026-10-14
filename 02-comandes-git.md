@@ -173,6 +173,7 @@ Un conflicte apareix s'ha editat **la mateixa línia** del mateix fitxer i inten
 Si en sincronitzar apareix un conflicte, VS Code és un dels millors editors per resoldre'ls:
 
 Els fitxer en conflicte es marcaran amb colors i indicacions visuals de les línies on es produeix el conflicte, en verd el canvi proposat en local i en blau el canvi rebut del repositori remot.
+
 ![VS Code Conflict](img/VSCodeConflicte.png)
 
 Dins del fitxer, veureu botons a sobre del text que diuen:
