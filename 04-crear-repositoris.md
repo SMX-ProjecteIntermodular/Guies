@@ -13,31 +13,19 @@ Aquesta guia explica com crear un repositori nou a GitHub a partir d'una plantil
 
 Un repositori plantilla és un repositori que conté una estructura de fitxers i carpetes preparada per ser reutilitzada. Crear un repositori a partir d'ella copia aquesta estructura (sense l'historial de commits) al teu compte.
 
-1. Al formulari **Create a new repository**, desplega el camp **Repository template** (a l'apartat *General*).
-2. Selecciona la plantilla desitjada (per exemple, la proporcionada pel professorat a l'organització `SMX-ProjecteIntermodular/projecte3_template`).
+1. A **Owner** assegura't que apareix el teu nom d'usuari o l'organització on vols crear el repositori si pertanys a una. Això serà important en projectes on haureu de crear el repositori dins d'una organització i no al vostre compte personal.
 
-    ![Selecció de la plantilla](./img/repository-template.png)
+2. Escriu el nom del repositori **Repository Name** que vols crear, per exemple `projecte3` i inclou una descripció a **Description**.
 
-    > Si no veus la plantilla, comprova que tens accés al repositori que la conté i que aquest està marcat com a *Template repository* (**Settings > Template repository**).
+3. A **Choose visibility** selecciona **Private** si vols que el repositori sigui privat. Si no, deixa-ho com a **Public**.
 
-3. Indica l'**Owner** (el teu usuari o una organització) i el **Repository name**. El nom ha de ser curt, descriptiu i sense espais (usa guions, per exemple `projecte-intermodular`).
+4. A **Start with a template** fes clic a **Choose a template** , si tens plantilles pròpies o a les organitzacions on pertanys, les veuràs a la llista. Si no, escriu directament el nom de la plantilla que vols utilitzar, per exemple:
 
-4. Opcionalment, afegeix una **Description**.
+```text
+SMX-ProjecteIntermodular/projecte3-template
+```
 
-![Propietari, nom i descripció](./img/repository-name.png)
-
-## Especificar la visibilitat: privat
-
-Al mateix formulari, a l'apartat **Choose visibility**, selecciona:
-
-- **Public**: qualsevol persona pot veure el repositori.
-- **Private**: només tu i les persones a qui donis accés poden veure'l i col·laborar-hi.
-
-Marca l'opció **Private**.
-
-![Visibilitat del repositori: Private](./img/repository-private.png)
-
-Finalment, fes clic a **Create repository**. GitHub generarà el repositori amb el contingut de la plantilla i veuràs una icona de **Private** al costat del nom.
+![Plantilla projecte3-template](./img/new_from_template.png)
 
 ## Canviar la visibilitat d'un repositori existent
 
@@ -47,12 +35,20 @@ Si ja has creat el repositori com a públic:
 2. Baixa fins a la secció **Danger Zone**.
 3. Fes clic a **Change visibility**, selecciona **Change to private** i confirma l'acció.
 
-![Change visibility](./img/change-visibility.png)
+![Change visibility](./img/change_private.png)
 
 ## Convidar col·laboradors a un repositori privat
 
 En un repositori privat, cal donar accés explícit a cada persona:
 
 1. Ves a **Settings > Collaborators**.
-2. Fes clic a **Add people** i cerca l'usuari pel seu nom d'usuari o correu.
-3. L'usuari rebrà una invitació que haurà d'acceptar.
+  ![Settings > Collaborators](./img/collaborators.png)
+
+2. Fes clic a **Add people**.
+  ![Add people](./img/add_people.png)
+
+3. Escriu el nom d'usuari de GitHub o el correu electrònic (ha de ser un correu electrònic registrat a GitHub) de la persona que vols afegir i fes clic a **Add**.
+  ![Add collaborator](./img/add_cfugarolas.png)
+
+4. Un cop afegida, la persona rebrà una notificació per correu electrònic i podrà acceptar la invitació per accedir al repositori privat. Mentre apareixerà la invitació pendent a la llista de col·laboradors.
+  ![Invitació pendent](./img/added_collaborators.png)
