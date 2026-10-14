@@ -7,3 +7,5 @@ Guies de suport pels projectes
 - [Guia 2. Comandes Git](02-comandes-git.md)
 
 - [Guia 3. Markdown](03-markdown.md)
+
+- [Guia 4. Creació de repositoris a partir de plantilla](04-crear-repositoris.md)
