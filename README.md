@@ -19,3 +19,7 @@ Guies de suport pel mòdul Projecte Intermodular del cicle formatiu de Sistemes 
 - [Guia 1. Procés alta a Microsoft 365 com estudiants](kanban/01-alta-m365.md)
 
 - [Guia 2. Creació de projectes amb Microsoft Planner](kanban/02-crear-projecte.md)
+
+## Guies diverses
+
+- [Guia 1. Registre Figma Educació](varis/01-FigmaEducation.md)
