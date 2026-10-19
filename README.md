@@ -2,6 +2,8 @@
 
 Guies de suport pel mòdul Projecte Intermodular del cicle formatiu de Sistemes Microinformàtics i Xarxes (SMX).
 
+![Guies de suport. Foto de Pixabay de Pexels](https://images.pexels.com/photos/34293528/pexels-photo-34293528.jpeg)
+
 ## Guies Control de versions
 
 - [Guia 1. Iniciació a Git, GitHub i Visual Studio Code](git-github/01-iniciacio-git-github-vscode.md)
