@@ -195,3 +195,42 @@ Fixeu-vos en la barra d'estat (la part inferior blava de l'editor). Allà veureu
            |       GitHub       │
            └────────────────────┘
 ```
+
+## Bones pràctiques a l'hora de fer commits
+
+Un commit és una fotografia de l'estat del teu projecte en un moment donat. Hauríeu de descriure clarament què s'ha canviat i per què. Cal evitar missatges com "canvis", "arreglat", "última versió" o "asdf".
+
+Un bon missatge de commit permet a qualsevol company de l'equip entendre què s'ha fet sense haver de llegir tot el codi.
+
+### Estructura i format del missatge de commit
+
+- Format del commit: `tipus: descripció breu`  
+  - **tipus**: indica la naturalesa del canvi.
+  - **descripció breu**: una frase concisa que resumeixi el canvi.
+
+- Tipus de commits recomanats:
+
+  - **feat**: Afegir una nova funcionalitat.
+  - **fix**: Corregir un error.
+  - **docs**: Canvis en la documentació.
+  - **style**: Canvis que no afecten el significat del codi (formatació, espais, etc.).
+  - **refactor**: Canvis en el codi que no afegeixen funcionalitat ni corregeixen errors.
+  - **test**: Afegir o modificar proves.
+  
+- El missatge s'escriu en minúscules i sense punt final. Exemple: `feat: afegit apartat d'instal·lació a la guia`. El temps verbal en present o imperatiu, ja que descriu què fa el commit, no què es va fer.
+
+- **Commits atòmics**: Cada commit hauria de representar un canvi complet i coherent. Eviteu commits que barregin múltiples canvis no relacionats. Per exemple, no barregis una modificació del text del README.md amb la creació d'una nova funcionalitat al teu codi en Python. **Cada commit hauria de tenir un propòsit clar i únic**.
+
+### Exemples de missatges de commit
+
+1. Inicialitzem un repositori amb un README.md bàsic:  
+   `docs: inicialitza la documentació del projecte EverPia`
+
+1. Afegim un arxiu en Python que calcula el hash d'una cadena:  
+   `feat: afegir programa hash.pyper calcular hash de cadenes`
+
+1. Editem el programa anterior per afegir la possibilitat de calcular el hash d'un fitxer:  
+   `feat: afegir funció per calcular hash de fitxers a hash.py`
+
+1. Corregim un error en el programa hash.py que no funcionava amb fitxers buits:  
+   `fix: corregir error en hash.py amb fitxers buits`
