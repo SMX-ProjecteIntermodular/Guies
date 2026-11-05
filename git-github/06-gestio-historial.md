@@ -46,6 +46,8 @@ git restore .
 
 O bé, amb Visual Studio Code, anar sobre la secció de "Canvis" dins el control de codi font i fer clic a "Descartar tots els canvis".
 
+![Desfer canvis a l'editor](./img/desfer-canvis.png)
+
 Es pot comprovar com un cop fet el `restore`, el Working Directory torna a estat sincronitzat amb l'àrea temporal (staging area) i amb el darrer commit.
 
 ## Desfer canvis a l'Index (staging area) abans de fer commit
@@ -60,6 +62,8 @@ git restore --staged .
 ```
 
 O bé, amb Visual Studio Code, anar a la secció "Control de codi font", a "Canvis (staged)" i allà cancel·lar l'emmagatzematge provisional. Es pot fer individualment per un fitxer (símbol `-` al costat del fitxer) o bé cancel·lar tots els fitxers alhora, amb el `-` al costat de "Canvis (staged)".
+
+![Desfer canvis a l'Index](./img/desfer-staged.png)
 
 ## Retrocedint a l'historial (viatge en el temps)
 
