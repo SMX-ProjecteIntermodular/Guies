@@ -16,6 +16,8 @@ L'historial de commits té una estructura de pila, això vol dir que el commit m
 
 Cada commit té un identificador únic (hash) que permet referir-se a ell de manera precisa, no cal escriure tot el hash, amb els primers 7 caràcters és suficient per identificar-lo. Per exemple, el commit amb hash `c313532c8367913ec18b69202d88f23bc15fde38` es pot referir com a `c313532`.
 
+Veurem com realitzar les diferents accions per comandes, que podeu executar des del terminal de Visual Code o directament des del terminal del sistema operatiu, i també com realitzar-les amb l'editor Visual Studio Code, en aquest cas, tenint instal·lada l'extensió `Git Graph`.
+
 ## Desfer canvis abans de fer commit
 
 Quan editem, estem treballant en el Working Directory, que és l'espai on es troben els fitxers del projecte. Quan fem `git add`, estem afegint els canvis a l'Index (staging area), que és una zona temporal on es preparen els canvis abans de fer commit.
@@ -59,11 +61,11 @@ git restore --staged .
 
 O bé, amb Visual Studio Code, anar a la secció "Control de codi font", a "Canvis (staged)" i allà cancel·lar l'emmagatzematge provisional. Es pot fer individualment per un fitxer (símbol `-` al costat del fitxer) o bé cancel·lar tots els fitxers alhora, amb el `-` al costat de "Canvis (staged)".
 
-## Tornant el Working Directory a l'estat d'un commit anterior (viatge en el temps)
+## Retrocedint a l'historial (viatge en el temps)
 
 Què passa quan l'error ja s'ha guardat en un o diversos commits? Com podem retrocedir en el temps?
 
-A Git no hi ha una sola manera de fer-ho; existeixen 3 estratègies principals, cadascuna amb els seus avantatges, inconvenients i casos d'ús.
+A Git no hi ha una sola manera de fer-ho; existeixen tres estratègies principals, cadascuna amb els seus avantatges, inconvenients i casos d'ús.
 
 ### Canviant el passat (git reset)
 
@@ -161,7 +163,7 @@ Si fos el darrer commit, també podem utilitzar:
 git revert HEAD
 ```
 
-En el cas de Visual Code, podem fer clic amb el botó dret sobre el commit que volem revertir i seleccionar l'opció "Revert Commit". Això crearà un nou commit que desfà els canvis del commit seleccionat.
+En el cas de Visual Code anat a `git graph`, podem fer clic amb el botó dret sobre el commit que volem revertir i seleccionar l'opció "Revert Commit". Això crearà un nou commit que desfà els canvis del commit seleccionat.
 
 **Gestió de conflictes en fer un Revert**:
 
@@ -170,3 +172,97 @@ Si intentes revertir un commit antic que modifica línies de codi que has canvia
 A l'editor veuràs les opcions en color blau i verd (Accept Current Change / Accept Incoming Change).
 
 Només cal que triïs quina versió de la configuració vols mantenir, desis el fitxer, el moguis a la zona de preparació amb la icona + (Stage Changes) i facis clic a Commit.
+
+### Exploració Temporal (Detached HEAD)
+
+S'utilitza quan vols consultar o provar l'estat del projecte en el passat sense esborrar res ni modificar la història oficial.
+
+Es basa a crear un estat temporal on el `HEAD` apunta a un commit antic, però no es modifica l'historial. És útil per fer proves o inspeccionar versions anteriors del projecte sense afectar la línia principal de desenvolupament. **No serveix per modificar el contigut del commit explorat**.
+
+Com provar-ho?
+
+1. Identifica el commit que vols explorar amb `git log` o amb l'eina gràfica i copia el seu hash.
+
+1. Per terminal executem:
+
+   ```bash
+   git switch --detach <hash_del_commit>
+   ```
+
+1. A l'editor ens apareixerà la versió antiga dels arxius. Podem navegar pel projecte, executar proves, però no podem fer commits en aquest estat.
+
+1. Per tornar a l'estat normal, simplement fem:
+
+   ```bash
+   git switch main
+   ```
+
+Usant Visual Code, anem a la secció de Control de Codi Font, i cliquem sobre l'opció de "git graph". Veurem com ens apareix el gràfic amb tots els commits.
+
+Si cliquem sobre un commit, ens apareix la informació i a la dreta l'opció d'Explorar (la lupa).
+
+![Explorar commit](./img/explorar-commit.png)
+
+Se'ns obre a l'editor una nova pestanya amb l'estat dels arxius en aquell commit.
+
+![Explorar commit detall](./img/detached-head.png)
+
+### Comparativa ràpida entre mètodes
+
+| Característica | `git revert` | `git reset` |
+| --- | --- | --- |
+| Acció sobre l'historial | Afegeix un nou commit al capdavant (Avança). | Desplaça el punter HEAD enrere (Elimina commits). |
+| Seguretat | 100% Segur. No modifica la història passada. | Perillós. Reescriu la història i esborra registres. |
+| Ús en equips (GitHub) | Recomanat. No genera conflictes amb altres companys. | Prohibit en branques compartides (main/develop). |
+| Traçabilitat / Auditoria | Manté l'error i la correcció registrats. | Esborra qualsevol rastre que l'error hagi hagut mai. |
+
+## Comparant canvis entre commits
+
+Per comparar les diferències entre dos punts qualsevol de l'historial, pots utilitzar comandes directes des de la terminal o visualitzar-ho gràficament amb l'extensió Git Graph a Visual Studio Code.
+
+### Opció 1: Comparació des de la Terminal (git diff)
+
+La comanda `git diff` permet comparar fitxers entre diferents commits de l'historial.
+
+- Comparar dos commits complets:
+
+    Identifica els hashes dels dos commits que vols comparar a través de `git log --oneline` i executa:
+
+    ```bash
+    git diff <hash_antic> <hash_recent>
+    ```
+
+  - Línies en vermell amb un -: Línies que existien al commit antic però han estat eliminades o modificades.
+  - Línies en verd amb un +: Línies noves afegides al commit recent.
+
+- Comparar un fitxer concret entre dos commits:
+
+  Si només vols veure els canvis del fitxer help.txt:
+
+  ```bash
+  git diff <hash_antic> <hash_recent> -- help.txt
+  ```
+
+- Comparar l'últim commit amb el penúltim:
+
+  Pots utilitzar la referència HEAD~1 (el commit immediatament anterior):
+
+  ```bash
+  git diff HEAD~1 HEAD
+  ```
+
+### Opció 2: Comparació visual amb l'extensió Git Graph a Visual Studio Code
+
+L'extensió Git Graph transforma l'historial de Git en un arbre visual interactiu ideal per analitzar repositoris complexos.
+
+1. Obre el visualitzador: A la barra d'estat inferior de VS Code o a la part superior del panell de Control de Font (Ctrl + Shift + G), fes clic a la icona o text Git Graph. S'obrirà un graella amb tot l'arbre de commits.
+
+1. Selecciona el primer commit (Commit A): Fes clic dret sobre el commit antic que vols utilitzar com a referència i tria "Select Commit A".
+
+1. Selecciona el segon commit (Commit B): Fes clic dret sobre el commit recent amb el qual el vols comparar i tria "Compare with Commit A".
+
+1. Revisa els fitxers modificats: A la part inferior o lateral de la finestra es desplegarà una llista amb tots els fitxers que tenen diferències entre aquells dos moments.
+
+1. Vista en paral·lel (Side-by-Side Diff): Fes clic sobre qualsevol fitxer de la llista (per exemple, interficies.txt). VS Code t'obrirà l'editor dividit en dues columnes: a l'esquerra veuràs el contingut original i a la dreta el contingut modificat, destacant els canvis línia per línia en vermell i verd.
+
+> 💡 **Consell**: Quan hagis d'explicar un canvi de configuració a un client o a un company d'equip, utilitza la vista comparativa en paral·lel de Git Graph per capturar una imatge clara del abans i el després.
