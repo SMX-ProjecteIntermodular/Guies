@@ -16,6 +16,8 @@ Guies de suport pel mòdul Projecte Intermodular del cicle formatiu de Sistemes 
 
 - [Guia 5. Resolució de conflictes a GitHub](git-github/05-resolucio-conflictes.md)
 
+- [Guia 6. Gestió de l'historial de versions](git-github/06-gestio-historial.md)
+
 ## Guies planificació de projectes
 
 - [Guia 1. Procés alta a Microsoft 365 com estudiants](kanban/01-alta-m365.md)
